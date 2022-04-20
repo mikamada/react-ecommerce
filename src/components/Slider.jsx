@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@mui/icons-material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../components/slider.css';
 
 import { ApiSlides } from '../componentsApi/sliderApi';
@@ -25,9 +25,13 @@ const Slider = () => {
 		if (acticeSlide === 0) {
 			setActiveSlide(slides.length - 1);
 		} else {
-			setActiveSlide(setActiveSlide - 1);
+			setActiveSlide(acticeSlide - 1);
 		}
 	};
+
+	useEffect(() => {
+		console.log('active:', acticeSlide);
+	}, [acticeSlide]);
 
 	return (
 		<div className="parentDiv h-[540px] bg-white flex items-center justify-between">
